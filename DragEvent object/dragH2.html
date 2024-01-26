@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop</title>
+  <style>
+    /* Add any necessary styling here */
+    div {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <p id="dragElement" draggable="true">Drag me!</p>
+  </div>
+
+  <div id="dropZone" droppable="true">
+    <!-- The dropped text will appear here -->
+  </div>
+
+  <script>
+    const p = document.querySelector("#dragElement");
+    const dropZone = document.querySelector("#dropZone");
+
+    p.addEventListener("dragstart", function (e) {
+      e.dataTransfer.setData("text", e.target.innerText);
+    });
+
+    dropZone.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+
+    dropZone.addEventListener("drop", function (e) {
+      e.preventDefault();
+      const text = e.dataTransfer.getData("text");
+      p.innerText = text;
+    });
+
+    dropZone.addEventListener("dragstart", function (e) {
+      e.dataTransfer.setData("text", e.target.innerText);
+    });
+
+    p.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+
+    p.addEventListener("drop", function (e) {
+      e.preventDefault();
+      const text = e.dataTransfer.getData("text");
+      dropZone.innerText = text;
+    });
+  </script>
+
+</body>
+
+</html>

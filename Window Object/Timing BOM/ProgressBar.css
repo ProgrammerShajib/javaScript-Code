@@ -1,0 +1,11 @@
+.myProgress{
+border: 2px solid red;
+  height: 45px;
+  width: 100px;
+  margin-bottom: 5px;
+}
+.myBar{
+  background-color: rgb(65, 65, 52);
+  height: 45px;
+  width: 10px;
+}
